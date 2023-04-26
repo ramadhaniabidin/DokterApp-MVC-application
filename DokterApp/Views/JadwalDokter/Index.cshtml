@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DokterApp.Models.JadwalDokter>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Doctor List</h1>
+
+<p>
+    <a asp-action="Create">
+        <button type="submit" class="btn btn-primary">Add New Doctor</button>
+    </a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lokasi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hari)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lokasi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hari)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

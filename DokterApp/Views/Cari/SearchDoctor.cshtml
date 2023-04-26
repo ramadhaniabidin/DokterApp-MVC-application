@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DokterApp.Models.Cari>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Daftar Dokter</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jenis_kelamin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spesialisasi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nik)
+                </td>
+                <td>
+                    @if (item.jenis_kelamin == 1)
+                    {
+                        <span>Laki-Laki</span>
+                    }
+                    else
+                    {
+                        <span>Perempuan</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.spesialisasi)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @*<a asp-action="Edit" asp-route-id="@Model.Doctor.id">Edit</a>*@ |
+    <a href="@Url.Action("Index", "Cari")">Kembali</a>
+</div>

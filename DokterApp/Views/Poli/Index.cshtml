@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DokterApp.Models.Poli>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Daftar Poli</h1>
+
+<p>
+    <a asp-action="Create">
+        <button type="submit" class="btn btn-primary">Tambah Poli</button>
+    </a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lokasi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.nama)*@
+                    @*<a asp-action="Details" asp-route-id="@item.id">@Html.DisplayFor(modelItem => item.nama)</a>*@
+                    <a href="@Url.Action("Index", "DokterPoli", new{id=item.id})">@Html.DisplayFor(modelItem => item.nama)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lokasi)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.id">Hapus</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

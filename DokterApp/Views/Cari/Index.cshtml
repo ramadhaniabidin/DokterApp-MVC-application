@@ -1,0 +1,40 @@
+﻿@model DokterApp.Models.Cari
+
+@{
+    ViewData["Title"] = "Index";
+    IEnumerable<Poli> listPoli = ViewData["ListPoli"] as IEnumerable<Poli>;
+    IEnumerable<Spesialisasi> listSpesialisasi = ViewData["ListSpesialisasi"] as IEnumerable<Spesialisasi>;
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Cari" asp-action="SearchDoctor">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nama" class="control-label"></label>
+                <select asp-for="nama" class="form-control form-select">
+                    <option disabled hidden selected>--Poli--</option>
+                    @foreach (var poli in listPoli)
+                    {
+                        <option value="@poli.nama.ToString()">@poli.nama</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="spesialisasi" class="control-label"></label>
+                <select asp-for="spesialisasi" class="form-control form-select">
+                    <option disabled hidden selected>--Spesialisasi--</option>
+                    @foreach (var spesialisasi in listSpesialisasi)
+                    {
+                        <option value="@spesialisasi.nama.ToString()">@spesialisasi.nama</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cari" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

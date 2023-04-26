@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DokterApp.Core\DokterApp.Core.csproj" />
+    <ProjectReference Include="..\DokterApp.Rpository.Interface\DokterApp.Repository.Interface.csproj" />
+    <ProjectReference Include="..\DokterApp.Rpository\DokterApp.Repository.csproj" />
+    <ProjectReference Include="..\DokterApp.Service.Interface\DokterApp.Service.Interface.csproj" />
+    <ProjectReference Include="..\DokterApp.Service\DokterApp.Service.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<DokterApp.Models.DoctorSpecialization>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Daftar Dokter</h1>
+
+<p>
+    <a asp-action="Create">
+        <button type="submit" class="btn btn-primary">Tambah Dokter</button>
+    </a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jenis_kelamin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spesialisasi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Details", "JadwalDokter", new{id=item.id, nik = item.nik})">@Html.DisplayFor(modelItem => item.nama)</a>
+                    <br>
+                    <img src="@item.image_url" class="image" />
+                    <style>
+                        .image {
+                            width: 200px
+                        }
+                    </style>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nik)
+                </td>
+                <td>
+                    @if (item.jenis_kelamin == 1)
+                    {
+                        <span>Laki-Laki</span>
+                    }
+                    else
+                    {
+                        <span>Perempuan</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.spesialisasi)
+                </td>
+                <style>
+                    .menu{
+                        width:150px
+                    }
+                </style>
+                <td class="menu">
+                    <a asp-action="Edit" asp-route-id="@item.id">
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.id">
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

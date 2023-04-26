@@ -1,0 +1,54 @@
+﻿@model DokterApp.Models.DoctorModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nama)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nama)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nip)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nip)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nik)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.tanggal_lahir)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.tanggal_lahir)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.tempat_lahir)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.tempat_lahir)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.jenis_kelamin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.jenis_kelamin)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

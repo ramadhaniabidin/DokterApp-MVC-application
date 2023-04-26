@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DokterApp.Core\DokterApp.Core.csproj" />
+    <ProjectReference Include="..\DokterApp.Rpository.Interface\DokterApp.Repository.Interface.csproj" />
+    <ProjectReference Include="..\DokterApp.Rpository\DokterApp.Repository.csproj" />
+    <ProjectReference Include="..\DokterApp.Service.Interface\DokterApp.Service.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

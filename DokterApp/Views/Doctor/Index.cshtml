@@ -1,0 +1,114 @@
+﻿@model IEnumerable<DokterApp.Models.DoctorModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Doctor List</h1>
+
+<p>
+    <a asp-action="Create">
+        <button type="submit" class="btn btn-primary">Add New Doctor</button>
+    </a>
+</p>
+@*<form asp-controller="Movie" asp-action="SearchMovie" method="get">
+    <div class="form-group">
+        <input type="text" class="form-control" name="title" placeholder="Search movies">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>*@
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tanggal_lahir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tempat_lahir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jenis_kelamin)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.spesialisasi)*@
+@*            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.spesialisasi)
+            </th>*@
+@*            <th>
+                @Html.DisplayNameFor(model => model.tanggal_lahir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tempat_lahir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jenis_kelamin)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.nama)*@
+                    <a asp-action="Details" asp-route-id="@item.id">@Html.DisplayFor(modelItem => item.nama)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tanggal_lahir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tempat_lahir)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.jenis_kelamin)*@
+                    @if(item.jenis_kelamin == 1)
+                    {
+                        <span>Laki-Laki</span>
+                    }
+                    else
+                    {
+                        <span>Perempuan</span>
+                    }
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.spesialisasi)
+                </td>*@
+@*                <td>
+                    @Html.DisplayFor(modelItem => item.tanggal_lahir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tempat_lahir)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jenis_kelamin)
+                </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,85 @@
+﻿@model DokterApp.Models.DoctorSpecialization
+
+@{
+    ViewData["Title"] = "Create";
+    var listSpesialisasi = ViewData["ListSpesialisasi"] as List<SelectListItem>;
+}
+
+
+<h1>Add Doctor</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="nama" class="control-label"></label>
+                <input asp-for="nama" class="form-control" />
+                <span asp-validation-for="nama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nik" class="control-label"></label>
+                <br />
+                <input asp-for="nik" maxlength="16" class="form-control" />
+                <span asp-validation-for="nik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tanggal_lahir" class="control-label"></label>
+                <input asp-for="tanggal_lahir" class="form-control" />
+                <span asp-validation-for="tanggal_lahir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tempat_lahir" class="control-label"></label>
+                <input asp-for="tempat_lahir" class="form-control" />
+                <span asp-validation-for="tempat_lahir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="jenis_kelamin" class="control-label"></label>
+                <select asp-for="jenis_kelamin" class="form-control form-select">
+                    <option value="1">Laki-Laki</option>
+                    <option value="2">Perempuan</option>
+                </select>
+                <br />
+                <span asp-validation-for="jenis_kelamin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="spesialisasi" class="control-label"></label>
+                <select asp-for="spesialisasi" class="form-control form-select">
+                    <option value="1">Spesialis Patologi Klinik</option>
+                    <option value="2">Spesialis Parasitologi Klinik</option>
+                    <option value="3">Spesialis Urologi</option>
+                    <option value="4">Spesialis Gizi Klinik</option>
+                    <option value="5">Spesialis Anak</option>
+                    <option value="6">Spesialis Anestesiologi dan Terapi Intensif</option>
+                    <option value="7">Spesialis Bedah</option>
+                    <option value="8">Spesialis Bedah Plastik Rekonstruksi dan Estetik</option>
+                    <option value="9">Spesialis Farmakologi Klinik</option>
+                    <option value="10">Spesialis Jantung dan Pembuluh Darah</option>
+                    <option value="11">Spesialis Konservasi Gigi</option>
+                    <option value="12">Spesialis Bedah Orthopaedi dan Traumatologi</option>
+                    <option value="13">Spesialis Penyakit Dalam</option>
+                    <option value="14">Spesialis Saraf</option>
+                    <option value="15">Spesialis Radiologi</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="image_url" required="false" class="control-label"></label>
+                <input asp-for="image_url" class="form-control" />
+                <span asp-validation-for="image_url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
